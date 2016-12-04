@@ -1,0 +1,13 @@
+{
+  "title": "[AUDIT] Logs audit points on potential OS command executions.",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "30min"
+  },
+  "tags": [
+    "auditpoint"
+  ],
+  "defaultSeverity": "Major"
+}

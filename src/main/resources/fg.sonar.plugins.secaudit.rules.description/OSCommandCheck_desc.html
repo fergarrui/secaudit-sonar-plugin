@@ -1,0 +1,22 @@
+<h1>OS Command Execution check</h1>
+<p>
+    This rule logs audit points on potential OS command executions and the executions themselves.
+</p>
+<p>
+    Detects:
+</p>
+<pre>
+    java.lang.Runtime.exec
+    java.lang.ProcessBuilder
+    java.lang.ProcessBuilder.command
+    org.apache.commons.exec.Executor
+    org.apache.commons.exec.Executor.execute
+</pre>
+<p>There is an OSCommandInjection rule for SonarQube : <a href="https://sonarqube.com/coding_rules#rule_key=squid%3AS2076">squid:S2076</a>.</p>
+<h2>
+    See
+</h2>
+<ul>
+    <li><a href="http://cwe.mitre.org/data/definitions/78">CWE-78</a> - Improper Neutralization of Special Elements used in an OS Command.</li>
+    <li><a href="http://cwe.mitre.org/data/definitions/88">CWE-88</a> - Argument Injection or Modification.</li>
+</ul>
