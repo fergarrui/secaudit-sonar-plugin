@@ -14,24 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package fg.sonar.plugins.secaudit.rules;
+package fg.sonar.plugins.secaudit.rules.checks;
 
-import fg.sonar.plugins.secaudit.rules.checks.OScommandCheck;
-import fg.sonar.plugins.secaudit.rules.checks.RequestHeaderCheck;
-import java.util.Arrays;
-import java.util.Collection;
-import org.sonar.plugins.java.api.JavaCheck;
+import org.junit.Test;
+import org.sonar.java.checks.verifier.JavaCheckVerifier;
 
-public class SecAuditRules {
+public class RequestHeaderCheckTest {
 
-  private static final Collection<Class<? extends JavaCheck>> checks =
-          Arrays.asList(OScommandCheck.class, RequestHeaderCheck.class );
-
-  private SecAuditRules() {
-    throw new IllegalAccessError("Do not instantiate this class.");
-  }
-
-  public static Class<? extends JavaCheck>[] getChecks() {
-    return checks.toArray(new Class[checks.size()]);
+  @Test
+  public void test() {
+    JavaCheckVerifier.verify("src/test/files/RequestHeadersCheck.java", new RequestHeaderCheck());
   }
 }

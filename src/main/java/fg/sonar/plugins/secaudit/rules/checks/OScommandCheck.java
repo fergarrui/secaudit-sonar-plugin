@@ -26,9 +26,7 @@ import org.sonar.plugins.java.api.tree.MethodInvocationTree;
 import org.sonar.plugins.java.api.tree.NewClassTree;
 import org.sonar.plugins.java.api.tree.Tree;
 
-@Rule(key = "OSCommandCheck",
-      name = "",
-      tags = {"auditpoint"})
+@Rule(key = "OSCommandCheck")
 public class OScommandCheck extends IssuableSubscriptionVisitor {
 
   private static final MethodMatcher RUNTIME_EXEC_MATCHER = MethodMatcher.create()

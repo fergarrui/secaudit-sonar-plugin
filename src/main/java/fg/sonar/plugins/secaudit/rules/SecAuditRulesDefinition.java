@@ -58,6 +58,9 @@ public class SecAuditRulesDefinition implements CheckRegistrar, RulesDefinition 
     org.sonar.check.Rule ruleAnnotation = AnnotationUtils.getAnnotation(ruleClass, org.sonar.check.Rule.class);
     String ruleKey = ruleAnnotation.key();
     NewRule rule = repository.rule(ruleKey);
+    if (rule == null ) {
+      throw new IllegalArgumentException("Rule: " + ruleClass.getSimpleName() + " not found in the repository");
+    }
     URL resource = SecAuditRulesDefinition.class.getResource(RULE_RESOURCE_PATH + "/" + ruleKey + "_desc.html");
     rule.setHtmlDescription(readResource(resource));
     addMetadata(rule, ruleKey);

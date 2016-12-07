@@ -16,8 +16,10 @@ cd secaudit-sonar-plugin
 mvn clean package
 # Install into SonarQube
 cp target/<plugin-version>.jar <sonar-qube-server>/extensions/plugins
+# Start SonarQube
 <sonar-qube-server-root>/bin/<os_version>/sonar.sh start
 # Analyze the target project
 cd <target-project-to-analyze>
+mvn clean package
 mvn sonar:sonar
 ```
