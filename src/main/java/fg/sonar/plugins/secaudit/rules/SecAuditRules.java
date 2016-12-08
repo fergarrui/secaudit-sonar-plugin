@@ -16,6 +16,7 @@
  */
 package fg.sonar.plugins.secaudit.rules;
 
+import fg.sonar.plugins.secaudit.rules.checks.MessageDigestCustomCheck;
 import fg.sonar.plugins.secaudit.rules.checks.OScommandCheck;
 import fg.sonar.plugins.secaudit.rules.checks.RequestHeaderCheck;
 import java.util.Arrays;
@@ -25,7 +26,7 @@ import org.sonar.plugins.java.api.JavaCheck;
 public class SecAuditRules {
 
   private static final Collection<Class<? extends JavaCheck>> checks =
-          Arrays.asList(OScommandCheck.class, RequestHeaderCheck.class );
+          Arrays.asList(OScommandCheck.class, RequestHeaderCheck.class, MessageDigestCustomCheck.class );
 
   private SecAuditRules() {
     throw new IllegalAccessError("Do not instantiate this class.");

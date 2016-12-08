@@ -1,0 +1,39 @@
+<h1>Message Digest Custom</h1>
+<p>
+    This rule logs audit points when a custom MessageDigest is found. It is better to use recommended hashing algorithms: SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224, or SHA-512/256.
+</p>
+<p>
+    Example:
+</p>
+<pre>
+class CustomMessageDigest extends MessageDigest { // Potentialy dangerous
+
+    public CustomMessageDigest() {super("AlgorithmName");}
+
+    @Override
+    protected void engineUpdate(byte input) {
+    }
+
+    @Override
+    protected void engineUpdate(byte[] input, int offset, int len) {
+    }
+
+    @Override
+    protected byte[] engineDigest() {
+    return new byte[0];
+    }
+
+    @Override
+    protected void engineReset() {
+    }
+}
+</pre>
+<h2>
+    See
+</h2>
+<ul>
+    <li><a href="http://csrc.nist.gov/groups/ST/toolkit/secure_hashing.html">NIST</a> recommended hashing algorithms.</li>
+    <li><a href="http://cwe.mitre.org/data/definitions/327.html">CWE-327</a> Use of a Broken or Risky Cryptographic Algorithm.</li>
+    <li><a href="https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure">OWASP A6</a> Sensitive Data Exposure.</li>
+    <li><a href="http://cwe.mitre.org/data/definitions/328">CWE-328</a> Reversible One-Way Hash.</li>
+</ul>
