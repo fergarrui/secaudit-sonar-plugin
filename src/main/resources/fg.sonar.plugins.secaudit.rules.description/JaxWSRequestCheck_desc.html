@@ -1,0 +1,23 @@
+<h1>JAX-WS web service</h1>
+<p>
+    This rule logs audit points when finding JAX-WS web services. In this class, there can be several methods receiving requests.
+    Some issues must be checked:
+</p>
+<ul>
+    <li>HTTP parameters</li>
+    <li>Authentication and authorisation</li>
+</ul>
+<p>
+    Example:
+</p>
+<pre>
+public class A { // Web Service
+
+  @WebMethod
+  public void foo(String s) {
+  }
+
+  public String bar(String s) {
+  }
+}
+</pre>

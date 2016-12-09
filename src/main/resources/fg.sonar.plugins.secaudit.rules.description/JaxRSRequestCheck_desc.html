@@ -1,0 +1,38 @@
+<h1>JAX-RS Rest web service</h1>
+<p>
+    This rule logs audit points when finding JAX-RS Rest web services. In this class, there can be several methods receiving requests.
+    Some issues must be checked:
+</p>
+<ul>
+    <li>HTTP parameters</li>
+    <li>Authentication and authorisation</li>
+    <li>Investigate CSRF</li>
+</ul>
+<p>
+    Example:
+</p>
+<pre>
+@Path("path")
+class RestController { // JAX-RS WS class found
+
+  @GET
+  String getEverything() {
+    return "{}";
+  }
+
+  @GET @Path("{param}")
+  String getSomething(@PathParam("param") String param) {
+    return "{}";
+  }
+}
+</pre>
+<h2>
+    See
+</h2>
+<ul>
+    <li><a href="https://es.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a> Wikipedia page.</li>
+    <li><a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)">CSRF</a> OWASP</li>
+    <li><a href="http://docs.oracle.com/javaee/6/api/javax/ws/rs/package-summary.html">Javax.ws.rs</a> Documentation</li>
+</ul>
+
+

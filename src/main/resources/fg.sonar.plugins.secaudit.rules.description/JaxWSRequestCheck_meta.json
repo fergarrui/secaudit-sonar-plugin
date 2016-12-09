@@ -1,13 +1,13 @@
 {
-  "title": "[AUDIT] HttpServletRequest.getHeader present.",
+  "title": "[AUDIT] JAX-WS web service.",
   "type": "CODE_SMELL",
   "status": "ready",
   "remediation": {
     "func": "Constant\/Issue",
-    "constantCost": "15min"
+    "constantCost": "30min"
   },
   "tags": [
     "auditpoint"
   ],
-  "defaultSeverity": "Major"
+  "defaultSeverity": "Info"
 }
