@@ -1,5 +1,5 @@
 {
-  "title": "[AUDIT] Spring controller present.",
+  "title": "[AUDIT] Spring controller present",
   "type": "CODE_SMELL",
   "status": "ready",
   "remediation": {

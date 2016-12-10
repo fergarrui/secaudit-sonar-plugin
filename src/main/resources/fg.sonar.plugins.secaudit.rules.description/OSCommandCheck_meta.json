@@ -1,5 +1,5 @@
 {
-  "title": "[AUDIT] Logs audit points on potential OS command executions.",
+  "title": "[AUDIT] Logs audit points on potential OS command executions",
   "type": "CODE_SMELL",
   "status": "ready",
   "remediation": {

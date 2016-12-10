@@ -1,0 +1,30 @@
+<h1>File path traversal check</h1>
+<p>
+    This rule logs audit points when a file is opened to read/write. The input parameters must be checked. If they are coming from a malicious user, this issue may lead to a Path traversal vulnerability.
+</p>
+<p>Detects:
+    <li>java.io.File</li>
+    <li>java.io.FileInputStream</li>
+    <li>java.io.FileReader</li>
+    <li>java.io.RandomAccessFile</li>
+    <li>java.io.FileWriter</li>
+    <li>java.io.FileOutputStream</li>
+</p>
+<p>
+    Example:
+</p>
+<pre>
+class A {
+  void method(String fileName) throws IOException {
+    File file1 = new File(fileName); // Untrusted input
+    File file2 = new File("file.txt");
+  }
+}
+</pre>
+<h2>
+    See
+</h2>
+<ul>
+    <li><a href="http://cwe.mitre.org/data/definitions/22.html">CWE-22</a> - Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')</li>
+    <li><a href="https://www.owasp.org/index.php/Path_Traversal">OWASP Path Traversal</a></li>
+</ul>

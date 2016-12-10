@@ -1,5 +1,5 @@
 {
-  "title": "[AUDIT] Custom MessageDigest can be vulnerable to collisions.",
+  "title": "[AUDIT] Custom MessageDigest can be vulnerable to collisions",
   "type": "CODE_SMELL",
   "status": "ready",
   "remediation": {

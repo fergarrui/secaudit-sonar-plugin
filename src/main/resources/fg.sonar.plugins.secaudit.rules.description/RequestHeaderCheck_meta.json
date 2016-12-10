@@ -1,5 +1,5 @@
 {
-  "title": "[AUDIT] HttpServletRequest.getHeader present.",
+  "title": "[AUDIT] HttpServletRequest.getHeader present",
   "type": "CODE_SMELL",
   "status": "ready",
   "remediation": {

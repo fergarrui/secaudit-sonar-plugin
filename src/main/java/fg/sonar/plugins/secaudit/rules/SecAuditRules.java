@@ -16,6 +16,7 @@
  */
 package fg.sonar.plugins.secaudit.rules;
 
+import fg.sonar.plugins.secaudit.rules.checks.FilePathTraversalCheck;
 import fg.sonar.plugins.secaudit.rules.checks.HttpResponseRedirectCheck;
 import fg.sonar.plugins.secaudit.rules.checks.HttpServletRequestCheck;
 import fg.sonar.plugins.secaudit.rules.checks.InsecureCookieCheck;
@@ -36,7 +37,7 @@ public class SecAuditRules {
       Arrays.asList(OScommandCheck.class, RequestHeaderCheck.class, MessageDigestCustomCheck.class,
               RequestReceivedStrutsCheck.class, JaxRSRequestCheck.class, JaxWSRequestCheck.class,
               HttpServletRequestCheck.class, SpringControllerCheck.class, InsecureCookieCheck.class,
-              HttpResponseRedirectCheck.class);
+              HttpResponseRedirectCheck.class, FilePathTraversalCheck.class);
 
   private SecAuditRules() {
     throw new IllegalAccessError("Do not instantiate this class.");

@@ -1,5 +1,5 @@
 {
-  "title": "[AUDIT] javax.servlet.http.Cookie found.",
+  "title": "[AUDIT] javax.servlet.http.Cookie found",
   "type": "CODE_SMELL",
   "status": "ready",
   "remediation": {

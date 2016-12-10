@@ -1,13 +1,13 @@
 {
-  "title": "[AUDIT] JAX-WS web service",
+  "title": "[AUDIT] File path traversal",
   "type": "CODE_SMELL",
   "status": "ready",
   "remediation": {
     "func": "Constant\/Issue",
-    "constantCost": "30min"
+    "constantCost": "10min"
   },
   "tags": [
     "auditpoint"
   ],
-  "defaultSeverity": "Info"
+  "defaultSeverity": "Major"
 }
