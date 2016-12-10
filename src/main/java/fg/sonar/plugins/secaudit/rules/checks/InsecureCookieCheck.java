@@ -19,34 +19,25 @@ package fg.sonar.plugins.secaudit.rules.checks;
 import com.google.common.collect.ImmutableList;
 import java.util.List;
 import org.sonar.check.Rule;
-import org.sonar.java.matcher.MethodMatcher;
 import org.sonar.plugins.java.api.IssuableSubscriptionVisitor;
-import org.sonar.plugins.java.api.tree.MethodInvocationTree;
+import org.sonar.plugins.java.api.tree.NewClassTree;
 import org.sonar.plugins.java.api.tree.Tree;
 
-@Rule(key = "RequestHeaderCheck")
-public class RequestHeaderCheck extends IssuableSubscriptionVisitor {
+@Rule(key = "InsecureCookieCheck")
+public class InsecureCookieCheck extends IssuableSubscriptionVisitor {
 
-  private static final MethodMatcher REQUEST_GET_HEADER_MATCHER = MethodMatcher.create()
-          .typeDefinition("javax.servlet.http.HttpServletRequest")
-          .name("getHeader")
-          .addParameter("java.lang.String");
-
-  private static final MethodMatcher REQUEST_GET_COOKIES_MATCHER = MethodMatcher.create()
-          .typeDefinition("javax.servlet.http.HttpServletRequest")
-          .name("getCookies");
+  private static final String SERVLET_HTTP_COOKIE_NAME = "javax.servlet.http.Cookie";
 
   @Override
   public List<Tree.Kind> nodesToVisit() {
-    return ImmutableList.of(Tree.Kind.METHOD_INVOCATION);
+    return ImmutableList.of(Tree.Kind.NEW_CLASS);
   }
 
   @Override
   public void visitNode(Tree tree) {
-    MethodInvocationTree methodInvocationTree = (MethodInvocationTree)tree;
-    if (REQUEST_GET_HEADER_MATCHER.matches(methodInvocationTree) ||
-        REQUEST_GET_COOKIES_MATCHER.matches(methodInvocationTree)) {
-      reportIssue(tree, "HttpServletRequest.getHeader present. ");
+    NewClassTree newClassTree = (NewClassTree)tree;
+    if (newClassTree.symbolType().is(SERVLET_HTTP_COOKIE_NAME)) {
+      reportIssue(newClassTree, "javax.servlet.http.Cookie found. Check the security of this cookie.");
     }
   }
 }

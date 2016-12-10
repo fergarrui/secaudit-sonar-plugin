@@ -1,0 +1,41 @@
+<h1>javax.servlet.http.Cookie found.</h1>
+<p>
+    This rule logs audit points when finding javax.servlet.http.Cookie creations.
+    Some issues must be checked:
+    <li>HttpOnly</li>
+    <li>Secure flag</li>
+    <li>HTTP Response Splitting</li>
+    <li>CRLF Injection</li>
+    <li>Encryption of sensitive data</li>
+</p>
+<p>
+    Example:
+</p>
+<pre>
+[...]
+Cookie cookie = new Cookie("a","b");
+[...]
+</pre>
+<p>Cookies can be secured using (or by configuration if using servlet 3.0):</p>
+<pre>
+[...]
+Cookie cookie = new Cookie("a","b");
+cookie.setSecure(true);
+cookie.setHttpOnly(true);
+[...]
+</pre>
+<h2>
+    See
+</h2>
+<ul>
+    <li><a href="https://www.owasp.org/index.php/HttpOnly">OWASP HttpOnly</a>.</li>
+    <li><a href="https://www.owasp.org/index.php/HTTP_Response_Splitting">OWASP HTTP Response Splitting</a></li>
+    <li><a href="http://cwe.mitre.org/data/definitions/113.html">CWE-113</a> -  Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Response Splitting')</li>
+    <li><a href="http://cwe.mitre.org/data/definitions/93.html">CWE-93</a> - Improper Neutralization of CRLF Sequences ('CRLF Injection')</li>
+    <li><a href="https://cwe.mitre.org/data/definitions/614.html">CWE-614</a> - Sensitive Cookie in HTTPS Session Without 'Secure' Attribute</li>
+    <li><a href="https://cwe.mitre.org/data/definitions/315.htmll">CWE-315</a> - Cleartext Storage of Sensitive Information in a Cookie</li>
+    <li><a href="https://cwe.mitre.org/data/definitions/311.html">CWE-311</a> - Missing Encryption of Sensitive Data</li>
+    <li><a href="https://www.owasp.org/index.php/SecureFlag">OWASP Secure Flag</a></li>
+</ul>
+
+
