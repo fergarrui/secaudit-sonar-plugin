@@ -1,0 +1,25 @@
+<h1>HttpServlet present</h1>
+<p>
+    This rule logs audit points when finding HttpServlet classes. In this class, there can be methods receiving requests.
+    The parameters are accessed from HttpServletRequest. For example: HttpServletRequest.getParameter("anyParameter").
+    Some issues must be checked:
+</p>
+<ul>
+    <li>HTTP parameters</li>
+    <li>Authentication and authorisation</li>
+    <li>DB access</li>
+    <li>Command execution</li>
+    <li>File opening</li>
+</ul>
+<p>
+    Example:
+</p>
+<pre>
+class A extends HttpServlet { // HttpServlet class found
+  @Override
+  public void doGet(HttpServletRequest request, HttpServletResponse response)
+          throws IOException, ServletException {
+    // This method processed a GET request.
+  }
+}
+</pre>

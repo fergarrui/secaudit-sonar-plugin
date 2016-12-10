@@ -1,0 +1,5 @@
+# MVN target folder
+target/
+
+# Intellij
+*.iml
