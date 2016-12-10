@@ -54,7 +54,7 @@ public class JaxRSRequestCheck extends IssuableSubscriptionVisitor {
 
   private boolean jaxRsPathAnnotationFound(List<AnnotationTree> annotations) {
     for (AnnotationTree annotationTree : annotations) {
-      if (JAX_RS_PATH_ANNOTATION.equals(annotationTree.symbolType().fullyQualifiedName())) {
+      if (annotationTree.symbolType().is(JAX_RS_PATH_ANNOTATION)) {
         return true;
       }
     }

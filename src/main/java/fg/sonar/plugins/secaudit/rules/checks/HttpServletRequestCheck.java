@@ -42,7 +42,7 @@ public class HttpServletRequestCheck extends IssuableSubscriptionVisitor {
       return;
     }
 
-    if (HTTP_SERVLET_CLASS_NAME.equals(superClass.symbolType().fullyQualifiedName())) {
+    if (superClass.symbolType().is(HTTP_SERVLET_CLASS_NAME)) {
       reportIssue(classTree.simpleName(), "This class extends HttpServlet. HTTP requests may be processed from here.");
     }
   }

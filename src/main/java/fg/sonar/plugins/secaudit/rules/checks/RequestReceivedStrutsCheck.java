@@ -41,7 +41,7 @@ public class RequestReceivedStrutsCheck extends IssuableSubscriptionVisitor {
     if (superClass == null) {
       return;
     }
-    if (STRUTS1_ACTION_CLASS_NAME.equals(superClass.symbolType().fullyQualifiedName())) {
+    if (superClass.symbolType().is(STRUTS1_ACTION_CLASS_NAME)) {
       reportIssue(classTree, "Struts1 request found. This class receives inputs from users.");
     }
   }

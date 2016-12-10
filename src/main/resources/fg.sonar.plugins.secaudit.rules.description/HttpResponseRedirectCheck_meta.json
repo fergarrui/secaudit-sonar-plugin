@@ -1,0 +1,13 @@
+{
+  "title": "[AUDIT] Untrusted HttpResponse redirect.",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "10min"
+  },
+  "tags": [
+    "auditpoint"
+  ],
+  "defaultSeverity": "Major"
+}

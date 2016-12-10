@@ -39,7 +39,7 @@ public class JaxWSRequestCheck extends IssuableSubscriptionVisitor {
   public void visitNode(Tree tree) {
     MethodTree methodTree = (MethodTree)tree;
     for (AnnotationTree annotationTree : methodTree.modifiers().annotations()) {
-      if (JAX_WS_WEBMETHOD_NAME.equals(annotationTree.symbolType().fullyQualifiedName())) {
+      if (annotationTree.symbolType().is(JAX_WS_WEBMETHOD_NAME)) {
         ClassTree classTree = methodTree.symbol().enclosingClass().declaration();
         reportIssue(classTree.simpleName(), "JaxWS controller found. This class is receiving requests, analysis needed.");
       }

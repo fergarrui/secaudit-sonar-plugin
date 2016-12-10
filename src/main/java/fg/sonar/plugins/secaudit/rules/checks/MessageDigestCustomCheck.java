@@ -42,8 +42,7 @@ public class MessageDigestCustomCheck extends IssuableSubscriptionVisitor {
       if (superClassTree == null) {
         return;
       }
-      String superClassName = superClassTree.symbolType().fullyQualifiedName();
-      if (MESSAGE_DIGEST_FULLY_NAME.equals(superClassName)) {
+      if (superClassTree.symbolType().is(MESSAGE_DIGEST_FULLY_NAME)) {
         reportIssue(superClassTree, "Using a custom MessageDigest can be dangerous. It's better to use recommended hashing algorithms.");
       }
     }

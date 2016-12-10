@@ -1,0 +1,22 @@
+<h1>Untrusted HttpResponse redirect</h1>
+<p>
+    This rule logs audit points when finding untrusted calls to HttpResponse.redirect. Make sure the parameter is validated, specially if it can come from the user.
+</p>
+<p>
+    Example:
+</p>
+<pre>
+    class C extends HttpServlet {
+        protected void doGet(HttpServletRequest request, HttpServletResponse response, String urlParam) throws ServletException, IOException {
+            String url = request.getParameter("url");
+            response.sendRedirect(url); // Dangerous redirect
+        }
+    }
+</pre>
+<h2>
+    See
+</h2>
+<ul>
+    <li><a href="http://cwe.mitre.org/data/definitions/601.html">CWE-601</a> - URL Redirection to Untrusted Site ('Open Redirect')</li>
+    <li><a href="https://www.owasp.org/index.php/Top_10_2013-A10-Unvalidated_Redirects_and_Forwards">OWASP Top 10-A10</a> - Top 10 2013-A10-Unvalidated Redirects and Forwards</li>
+</ul>
