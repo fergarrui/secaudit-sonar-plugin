@@ -1,0 +1,30 @@
+<h1>Spring MVC Controller found</h1>
+<p>
+    This rule logs audit points when finding Spring MVC controllers. All methods annotated with @RequestParam are receiving requests.
+    Some issues can be checked:
+</p>
+<ul>
+    <li>HTTP parameters</li>
+    <li>Authentication and authorisation</li>
+    <li>DB access</li>
+    <li>Command execution</li>
+    <li>File opening</li>
+</ul>
+<p>
+    Example:
+</p>
+<pre>
+@Controller
+@RequestMapping("/")
+class A { // This class is a Spring controller
+
+  public String hello() {
+    return "";
+  }
+
+  @RequestMapping("/anypath")
+  public String anyPath() {
+    return "";
+  }
+}
+</pre>

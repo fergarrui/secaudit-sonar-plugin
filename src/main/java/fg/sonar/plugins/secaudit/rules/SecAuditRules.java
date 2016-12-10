@@ -23,6 +23,7 @@ import fg.sonar.plugins.secaudit.rules.checks.MessageDigestCustomCheck;
 import fg.sonar.plugins.secaudit.rules.checks.OScommandCheck;
 import fg.sonar.plugins.secaudit.rules.checks.RequestHeaderCheck;
 import fg.sonar.plugins.secaudit.rules.checks.RequestReceivedStrutsCheck;
+import fg.sonar.plugins.secaudit.rules.checks.SpringControllerCheck;
 import java.util.Arrays;
 import java.util.Collection;
 import org.sonar.plugins.java.api.JavaCheck;
@@ -32,7 +33,7 @@ public class SecAuditRules {
   private static final Collection<Class<? extends JavaCheck>> checks =
       Arrays.asList(OScommandCheck.class, RequestHeaderCheck.class, MessageDigestCustomCheck.class,
               RequestReceivedStrutsCheck.class, JaxRSRequestCheck.class, JaxWSRequestCheck.class,
-              HttpServletRequestCheck.class);
+              HttpServletRequestCheck.class, SpringControllerCheck.class);
 
   private SecAuditRules() {
     throw new IllegalAccessError("Do not instantiate this class.");

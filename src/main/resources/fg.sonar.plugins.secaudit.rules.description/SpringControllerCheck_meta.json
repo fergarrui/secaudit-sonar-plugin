@@ -1,5 +1,5 @@
 {
-  "title": "[AUDIT] Struts1 request found.",
+  "title": "[AUDIT] Spring controller present.",
   "type": "CODE_SMELL",
   "status": "ready",
   "remediation": {
