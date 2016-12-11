@@ -24,6 +24,10 @@ import org.sonar.plugins.java.api.tree.VariableTree;
 
 public class ExpressionTreeUtils {
 
+  private ExpressionTreeUtils() {
+    throw new IllegalAccessError("Cannot instantiate this utility class.");
+  }
+
   public static boolean invalidArguments(List<ExpressionTree> arguments) {
     boolean areInvalid = false;
     for (ExpressionTree expressionTree : arguments) {

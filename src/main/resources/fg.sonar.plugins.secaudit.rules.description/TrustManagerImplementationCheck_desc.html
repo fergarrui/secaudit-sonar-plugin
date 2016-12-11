@@ -1,0 +1,44 @@
+<h1> TrustManager/HostnameVerifier implementation check</h1>
+<p>
+    This rule logs audit points when implementations of javax.net.ssl.X509TrustManager or javax.net.ssl.HostnameVerifier are found.
+    Having an empty/wrong implementation of these interfaces, allows attackers to spoof certificates, leading to MITM attacks.
+</p>
+<p>
+    Example for X509TrustManager:
+</p>
+<pre>
+class A implements X509TrustManager { // Wrong implementation
+
+  @Override
+  public void checkClientTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException {
+    // Empty implementation!
+  }
+
+  @Override
+  public void checkServerTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException {
+    // Empty implementation!
+  }
+
+  @Override
+  public X509Certificate[] getAcceptedIssuers() {
+    // Empty implementation!
+    return null;
+  }
+}
+</pre>
+<p>Example for HostnameVerifier:</p>
+<pre>
+class C implements HostnameVerifier { // Wrong implementation
+  public boolean verify(final String hostname, final SSLSession session) {
+    // Always returns true!
+    return true;
+  }
+}
+</pre>
+<h2>
+    See
+</h2>
+<ul>
+    <li><a href="http://cwe.mitre.org/data/definitions/295.html">CWE-295</a> - Improper Certificate Validation</li>
+    <li><a href="http://cwe.mitre.org/data/definitions/523.html">CWE-523</a> - Unprotected Transport of Credentials</li>
+</ul>

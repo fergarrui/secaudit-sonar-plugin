@@ -40,10 +40,9 @@ public class FilePathTraversalCheck extends IssuableSubscriptionVisitor {
   @Override
   public void visitNode(Tree tree) {
     NewClassTree newClassTree = (NewClassTree)tree;
-    if (fileClasses.contains(newClassTree.symbolType().fullyQualifiedName())) {
-      if(ExpressionTreeUtils.invalidArguments(newClassTree.arguments())) {
-        reportIssue(newClassTree, "A file has been opened. Check that is not receiving any unfiltered parameter.");
-      }
+    if (fileClasses.contains(newClassTree.symbolType().fullyQualifiedName()) &&
+            ExpressionTreeUtils.invalidArguments(newClassTree.arguments())) {
+      reportIssue(newClassTree, "A file has been opened. Check that is not receiving any unfiltered parameter.");
     }
   }
 }
