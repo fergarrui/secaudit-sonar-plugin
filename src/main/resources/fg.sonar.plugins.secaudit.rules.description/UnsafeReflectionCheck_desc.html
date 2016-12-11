@@ -1,0 +1,21 @@
+<h1>Unsafe reflection</h1>
+<p>
+    This rule logs audit points when detects unsafe reflection. The method java.lang.Class#forName can receive input from an untrusted source and instantiate objects from improper classes.
+    This can lead to unexpected behaviour, authentication bypass, control checks, etc.
+</p>
+<p>
+    Example:
+</p>
+<pre>
+void method(String className) {
+    Class a = Class.forName(className); // This input may be an user input.
+    Object obj = a.newInstance();
+}
+</pre>
+<h2>
+    See
+</h2>
+<ul>
+    <li><a href="https://cwe.mitre.org/data/definitions/470.html">CWE-470</a> - Use of Externally-Controlled Input to Select Classes or Code ('Unsafe Reflection').</li>
+    <li><a href="https://www.owasp.org/index.php/Unsafe_use_of_Reflection">OWASP Unsafe use of Reflection</a>.</li>
+</ul>

@@ -1,0 +1,13 @@
+{
+  "title": "[AUDIT] Unsafe reflection",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "15min"
+  },
+  "tags": [
+    "auditpoint"
+  ],
+  "defaultSeverity": "Info"
+}

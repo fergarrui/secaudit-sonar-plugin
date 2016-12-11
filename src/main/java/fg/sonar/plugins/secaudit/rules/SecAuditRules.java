@@ -27,6 +27,7 @@ import fg.sonar.plugins.secaudit.rules.checks.OScommandCheck;
 import fg.sonar.plugins.secaudit.rules.checks.RequestHeaderCheck;
 import fg.sonar.plugins.secaudit.rules.checks.RequestReceivedStrutsCheck;
 import fg.sonar.plugins.secaudit.rules.checks.SpringControllerCheck;
+import fg.sonar.plugins.secaudit.rules.checks.UnsafeReflectionCheck;
 import java.util.Arrays;
 import java.util.Collection;
 import org.sonar.plugins.java.api.JavaCheck;
@@ -37,7 +38,7 @@ public class SecAuditRules {
       Arrays.asList(OScommandCheck.class, RequestHeaderCheck.class, MessageDigestCustomCheck.class,
               RequestReceivedStrutsCheck.class, JaxRSRequestCheck.class, JaxWSRequestCheck.class,
               HttpServletRequestCheck.class, SpringControllerCheck.class, InsecureCookieCheck.class,
-              HttpResponseRedirectCheck.class, FilePathTraversalCheck.class);
+              HttpResponseRedirectCheck.class, FilePathTraversalCheck.class, UnsafeReflectionCheck.class);
 
   private SecAuditRules() {
     throw new IllegalAccessError("Do not instantiate this class.");

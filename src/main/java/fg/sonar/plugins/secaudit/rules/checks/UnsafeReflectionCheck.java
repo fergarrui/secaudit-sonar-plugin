@@ -18,32 +18,32 @@ package fg.sonar.plugins.secaudit.rules.checks;
 
 import com.google.common.collect.ImmutableList;
 import fg.sonar.plugins.secaudit.rules.checks.util.ExpressionTreeUtils;
-import java.util.Collection;
 import java.util.List;
 import org.sonar.check.Rule;
+import org.sonar.java.matcher.MethodMatcher;
 import org.sonar.plugins.java.api.IssuableSubscriptionVisitor;
-import org.sonar.plugins.java.api.tree.NewClassTree;
+import org.sonar.plugins.java.api.tree.MethodInvocationTree;
 import org.sonar.plugins.java.api.tree.Tree;
 
-@Rule(key = "FilePathTraversalCheck")
-public class FilePathTraversalCheck extends IssuableSubscriptionVisitor {
+@Rule(key = "UnsafeReflectionCheck")
+public class UnsafeReflectionCheck extends IssuableSubscriptionVisitor {
 
-  private static final Collection<String> fileClasses =
-          ImmutableList.of("java.io.File", "java.io.FileInputStream", "java.io.FileReader", "java.io.RandomAccessFile",
-                  "java.io.FileWriter", "java.io.FileOutputStream");
+  private static final MethodMatcher CLASS_FOR_NAME_MATCHER = MethodMatcher.create()
+          .typeDefinition("java.lang.Class")
+          .name("forName")
+          .withNoParameterConstraint();
 
   @Override
   public List<Tree.Kind> nodesToVisit() {
-    return ImmutableList.of(Tree.Kind.NEW_CLASS);
+    return ImmutableList.of(Tree.Kind.METHOD_INVOCATION);
   }
 
   @Override
   public void visitNode(Tree tree) {
-    NewClassTree newClassTree = (NewClassTree)tree;
-    if (fileClasses.contains(newClassTree.symbolType().fullyQualifiedName())) {
-      if(ExpressionTreeUtils.invalidArguments(newClassTree.arguments())) {
-        reportIssue(newClassTree, "A file has been opened. Check that is not receiving any unfiltered parameter.");
-      }
+    MethodInvocationTree methodInvocationTree = (MethodInvocationTree)tree;
+    if (CLASS_FOR_NAME_MATCHER.matches(methodInvocationTree)
+            && ExpressionTreeUtils.invalidArguments(methodInvocationTree.arguments())) {
+      reportIssue(methodInvocationTree, "Unsafe reflection. This code can potentially instantiate improper classes.");
     }
   }
 }
