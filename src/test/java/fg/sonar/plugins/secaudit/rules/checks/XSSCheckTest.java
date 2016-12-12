@@ -20,7 +20,6 @@ import org.junit.Test;
 import org.sonar.check.Rule;
 import org.sonar.java.checks.verifier.JavaCheckVerifier;
 
-@Rule(key = "XSSCheckTest")
 public class XSSCheckTest {
 
   @Test
