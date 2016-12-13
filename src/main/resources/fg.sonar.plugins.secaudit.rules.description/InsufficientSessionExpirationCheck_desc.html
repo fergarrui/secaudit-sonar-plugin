@@ -1,0 +1,22 @@
+<h1>Insufficient Session Expiration</h1>
+<p>
+    This rule logs audit points when finding not-expiring HttpSession objects. This can make some attacks more successful.
+    If an attacker can intercept a session id, it will be reusable at any time. Expiring the session at some point, reduces the window of session-related attacks.
+</p>
+<p>
+    Example:
+</p>
+<pre>
+[...]
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    HttpSession s = req.getSession(true);
+    s.setMaxInactiveInterval(-1); // Indicates the session should never timeout.
+}
+[...]
+</pre>
+<h2>
+    See
+</h2>
+<ul>
+    <li><a href="http://cwe.mitre.org/data/definitions/613.html">CWE-613</a> - Insufficient Session Expiration</li>
+</ul>

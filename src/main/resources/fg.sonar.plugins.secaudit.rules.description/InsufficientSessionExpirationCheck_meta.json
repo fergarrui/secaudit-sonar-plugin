@@ -1,0 +1,13 @@
+{
+  "title": "[AUDIT] Insufficient Session Expiration",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "10min"
+  },
+  "tags": [
+    "auditpoint"
+  ],
+  "defaultSeverity": "Info"
+}
