@@ -1,0 +1,61 @@
+<h1>XML parsing, potential XEE</h1>
+<p>
+    This rule logs audit points when detecting a potential XML parsing. Most libraries don't enable secure processing by default.
+</p>
+<p>
+    XML Parsers detected:
+<li>org.w3c.dom.Document</li>
+<li>javax.xml.stream.XMLStreamReader</li>
+<li>javax.xml.parsers.SAXParser</li>
+<li>org.xml.sax.XMLReader</li>
+</p>
+<p>
+    Example:
+</p>
+<pre>
+class A {
+  String xml = "<xml></xml>";
+  void documentParseXML() {
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    ByteArrayInputStream input =  new ByteArrayInputStream(
+        xml.getBytes("UTF-8"));
+    Document doc = builder.parse(input); // Raises an audit point
+  }
+}
+</pre>
+<p>
+    Example of malicious XML:
+</p>
+<pre>
+    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;!DOCTYPE vuln [ &lt;!ELEMENT title ANY &gt;
+    &lt;!ENTITY xxe SYSTEM "file:///etc/passwd" &gt;]&gt;
+    &lt;poc&gt;
+      &lt;vuln&gt;&xxe;&lt;/vuln&gt;
+    &lt;/poc&gt;
+</pre>
+<p>
+    The solution in this case is:
+</p>
+<pre>
+class A {
+  String xml = "<xml></xml>";
+  void documentParseXML() {
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true); // Fix
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    ByteArrayInputStream input =  new ByteArrayInputStream(
+        xml.getBytes("UTF-8"));
+    Document doc = builder.parse(input); // Raises an audit point
+  }
+}
+</pre>
+<h2>
+    See
+</h2>
+<ul>
+    <li><a href="http://cwe.mitre.org/data/definitions/611.html">CWE-611</a> - Improper Restriction of XML External Entity Reference ('XXE').</li>
+    <li><a href="http://cwe.mitre.org/data/definitions/827.html">CWE-827</a> - Improper Control of Document Type Definition.</li>
+    <li><a href="https://www.owasp.org/index.php/XML_External_Entity_%28XXE%29_Processing">OWASP XEE</a> - XML External Entity (XXE) Processing.</li>
+</ul>

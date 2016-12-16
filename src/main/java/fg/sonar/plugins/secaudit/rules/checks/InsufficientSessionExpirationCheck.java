@@ -38,7 +38,7 @@ public class InsufficientSessionExpirationCheck extends IssuableSubscriptionVisi
           .name("setMaxInactiveInterval")
           .withNoParameterConstraint();
 
-  private final static Integer INVALID_SESSION_TIME = 1;
+  private static final Integer INVALID_SESSION_TIME = 1;
 
   @Override
   public List<Tree.Kind> nodesToVisit() {
