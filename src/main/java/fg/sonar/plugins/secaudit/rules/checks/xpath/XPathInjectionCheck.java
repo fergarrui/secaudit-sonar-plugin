@@ -27,7 +27,6 @@ import org.sonar.plugins.java.api.tree.ExpressionTree;
 import org.sonar.plugins.java.api.tree.MethodInvocationTree;
 import org.sonar.plugins.java.api.tree.NewClassTree;
 import org.sonar.plugins.java.api.tree.Tree;
-
 import static fg.sonar.plugins.secaudit.rules.checks.xpath.XPathMatchers.matchers;
 
 @Rule(key = "XPathInjectionCheck")

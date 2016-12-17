@@ -1,0 +1,13 @@
+{
+  "title": "[AUDIT] use of System.exit()",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "20min"
+  },
+  "tags": [
+    "auditpoint"
+  ],
+  "defaultSeverity": "Info"
+}

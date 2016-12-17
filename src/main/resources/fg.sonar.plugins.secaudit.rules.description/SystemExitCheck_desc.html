@@ -1,0 +1,22 @@
+<h1>Use of System.exit()</h1>
+<p>
+    This rule logs audit points when usages of java.lang.System#exit() or java.lang.Runtime#exit() are found. If those methods are reachable in, for example, a web application, DOS attacks can be done, since it will shutdown its container.
+</p>
+<p>
+    Example:
+</p>
+<pre>
+class A {
+    void method() {
+        System.exit(1); // Raises an audit point
+        Runtime.getRuntime().exit(1); // Raises an audit point
+    }
+}
+</pre>
+<h2>
+    See
+</h2>
+<ul>
+    <li><a href="https://cwe.mitre.org/data/definitions/382.html">CWE-382</a> - J2EE Bad Practices: Use of System.exit().</li>
+    <li><a href="https://www.owasp.org/index.php/Denial_of_Service">OWASP Denial of Service</a>.</li>
+</ul>

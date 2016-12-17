@@ -19,10 +19,10 @@ package fg.sonar.plugins.secaudit.rules.checks;
 import org.junit.Test;
 import org.sonar.java.checks.verifier.JavaCheckVerifier;
 
-public class TrustManagerImplementationCheckTest {
+public class SystemExitCheckTest {
 
   @Test
   public void test() {
-    JavaCheckVerifier.verify("src/test/files/TrustManagerImplementationCheck.java", new TrustManagerImplementationCheck());
+    JavaCheckVerifier.verify("src/test/files/SystemExitCheck.java", new SystemExitCheck());
   }
 }
