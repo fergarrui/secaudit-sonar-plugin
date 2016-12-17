@@ -28,6 +28,11 @@ public class ExpressionTreeUtils {
     throw new IllegalAccessError("Cannot instantiate this utility class.");
   }
 
+  /**
+   * Quite simple checking for dynamic String arguments.
+   * @param arguments method arguments
+   * @return true if there is at least one invalid argument
+   */
   public static boolean invalidArguments(List<ExpressionTree> arguments) {
     boolean areInvalid = false;
     for (ExpressionTree expressionTree : arguments) {

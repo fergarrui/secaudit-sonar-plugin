@@ -1,0 +1,13 @@
+{
+  "title": "[AUDIT] XPath injection",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "30min"
+  },
+  "tags": [
+    "auditpoint"
+  ],
+  "defaultSeverity": "Major"
+}

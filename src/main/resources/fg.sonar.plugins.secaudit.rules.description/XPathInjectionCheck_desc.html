@@ -1,0 +1,37 @@
+<h1>XPath injection</h1>
+<p>
+    This rule logs audit points when detecting a potential XPath injection.
+</p>
+<p>
+    XPath engines detected:
+<li>javax.xml.xpath.XPath</li>
+<li>org.apache.xpath.XPathAPI</li>
+<li>com.sun.org.apache.xpath.internal.XPathAPI</li>
+<li>org.apache.xml.security.utils.XPathAPI</li>
+<li>org.apache.commons.jxpath.JXPathContext</li>
+<li>org.jdom.xpath.XPath</li>
+<li>net.sf.saxon.xpath.XPathEvaluator</li>
+<li>org.xmldb.api.modules.XPathQueryService</li>
+</p>
+<p>
+    Example:
+</p>
+<pre>
+[...]
+  void xmlXpath(String id) throws Exception {
+    String xpathExpression = "/users/user[@id='" + id + "']";
+    String xml = readXml();
+    Document document = getDocument();
+    javax.xml.xpath.XPath xpath = XPathFactory.newInstance().newXPath();
+    String result = xpath.evaluate(xpathExpression, document); // Evaluating a non-literal expression.
+  }
+[...]
+</pre>
+<h2>
+    See
+</h2>
+<ul>
+    <li><a href="http://cwe.mitre.org/data/definitions/643.html">CWE-643</a> - Improper Neutralization of Data within XPath Expressions ('XPath Injection').</li>
+    <li><a href="https://www.owasp.org/index.php/Top_10_2013-A1-Injection">OWASP A1 Injection</a>.</li>
+    <li><a href="https://www.owasp.org/index.php/XPATH_Injection">OWASP XPath Injection</a>.</li>
+</ul>
