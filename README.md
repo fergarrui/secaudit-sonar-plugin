@@ -38,6 +38,7 @@ mvn sonar:sonar
 * [Insecure Cookie](https://cdn.rawgit.com/fergarrui/secaudit-sonar-plugin/master/src/main/resources/fg.sonar.plugins.secaudit.rules.description/InsecureCookieCheck_desc.html)
 * [Insufficient Session expiration](https://cdn.rawgit.com/fergarrui/secaudit-sonar-plugin/master/src/main/resources/fg.sonar.plugins.secaudit.rules.description/InsufficientSessionExpirationCheck_desc.html)
 * [Custom MessageDigest](https://cdn.rawgit.com/fergarrui/secaudit-sonar-plugin/master/src/main/resources/fg.sonar.plugins.secaudit.rules.description/MessageDigestCustomCheck_desc.html)
+* [Object deserialization](https://cdn.rawgit.com/fergarrui/secaudit-sonar-plugin/master/src/main/resources/fg.sonar.plugins.secaudit.rules.description/DeserializationCheck_desc.html)
 * [OS Command Exec](https://cdn.rawgit.com/fergarrui/secaudit-sonar-plugin/master/src/main/resources/fg.sonar.plugins.secaudit.rules.description/OSCommandCheck_desc.html)
 * [Request Header use](https://cdn.rawgit.com/fergarrui/secaudit-sonar-plugin/master/src/main/resources/fg.sonar.plugins.secaudit.rules.description/RequestHeaderCheck_desc.html)
 * [System.exit()](https://cdn.rawgit.com/fergarrui/secaudit-sonar-plugin/master/src/main/resources/fg.sonar.plugins.secaudit.rules.description/SystemExitCheck_desc.html)
