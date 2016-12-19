@@ -34,6 +34,7 @@ mvn sonar:sonar
 * [JaxRS backend](https://cdn.rawgit.com/fergarrui/secaudit-sonar-plugin/master/src/main/resources/fg.sonar.plugins.secaudit.rules.description/JaxRSRequestCheck_desc.html)
 * [JaxWS backend](https://cdn.rawgit.com/fergarrui/secaudit-sonar-plugin/master/src/main/resources/fg.sonar.plugins.secaudit.rules.description/JaxWSRequestCheck_desc.html)
 * [File path traversal](https://cdn.rawgit.com/fergarrui/secaudit-sonar-plugin/master/src/main/resources/fg.sonar.plugins.secaudit.rules.description/FilePathTraversalCheck_desc.html)
+* [File upload](https://cdn.rawgit.com/fergarrui/secaudit-sonar-plugin/master/src/main/resources/fg.sonar.plugins.secaudit.rules.description/FileUploadCheck_desc.html)
 * [Http Response redirect](https://cdn.rawgit.com/fergarrui/secaudit-sonar-plugin/master/src/main/resources/fg.sonar.plugins.secaudit.rules.description/HttpResponseRedirectCheck_desc.html)
 * [Insecure Cookie](https://cdn.rawgit.com/fergarrui/secaudit-sonar-plugin/master/src/main/resources/fg.sonar.plugins.secaudit.rules.description/InsecureCookieCheck_desc.html)
 * [Insufficient Session expiration](https://cdn.rawgit.com/fergarrui/secaudit-sonar-plugin/master/src/main/resources/fg.sonar.plugins.secaudit.rules.description/InsufficientSessionExpirationCheck_desc.html)

@@ -1,0 +1,33 @@
+<h1>File upload</h1>
+<p>
+    This rule logs audit points when finding a file upload. Read 'see' section.
+</p>
+<p>Frameworks detected:
+<li>Java Servlet - javax.servlet.http.Part</li>
+<li>Apache commons - org.apache.commons.fileupload.FileItem</li>
+<li>Spring - org.springframework.web.multipart.MultipartFile</li>
+<li>Jersey - com.sun.jersey.core.header.FormDataContentDisposition</li>
+</p>
+<p>
+    Example:
+</p>
+<pre>
+class TestServlet extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        Part filePart = req.getPart("file"); // An uploaded file is going to be processed
+    }
+}
+</pre>
+<h2>
+    See
+</h2>
+<ul>
+    <li><a href="https://www.owasp.org/index.php/Unrestricted_File_Upload">OWASP Unrestricted File Upload</a></li>
+    <li><a href="https://www.securecoding.cert.org/confluence/display/java/IDS56-J.+Prevent+arbitrary+file+upload">CERT Prevent arbitrary file upload</a></li>
+    <li><a href="https://www.owasp.org/index.php/Protect_FileUpload_Against_Malicious_File">OWASP Protect FileUpload Against Malicious File</a></li>
+    <li><a href="https://www.owasp.org/index.php/Test_Upload_of_Malicious_Files_(OTG-BUSLOGIC-009)">OWASP Test Upload of Malicious Files</a></li>
+    <li><a href="http://cwe.mitre.org/data/definitions/22.html">CWE-22</a> - Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')</li>
+    <li><a href="https://www.owasp.org/index.php/Path_Traversal">OWASP Path Traversal</a></li>
+    <li><a href="https://blogs.securiteam.com/index.php/archives/1268">SecuriTeam - </a> File upload security recommendations.</li>
+</ul>

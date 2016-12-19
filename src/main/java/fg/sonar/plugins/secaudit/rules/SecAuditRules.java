@@ -18,6 +18,7 @@ package fg.sonar.plugins.secaudit.rules;
 
 import fg.sonar.plugins.secaudit.rules.checks.DeserializationCheck;
 import fg.sonar.plugins.secaudit.rules.checks.FilePathTraversalCheck;
+import fg.sonar.plugins.secaudit.rules.checks.FileUploadCheck;
 import fg.sonar.plugins.secaudit.rules.checks.HttpResponseRedirectCheck;
 import fg.sonar.plugins.secaudit.rules.checks.HttpServletRequestCheck;
 import fg.sonar.plugins.secaudit.rules.checks.InsecureCookieCheck;
@@ -47,7 +48,8 @@ public class SecAuditRules {
               HttpServletRequestCheck.class, SpringControllerCheck.class, InsecureCookieCheck.class,
               HttpResponseRedirectCheck.class, FilePathTraversalCheck.class, UnsafeReflectionCheck.class,
               TrustManagerImplementationCheck.class, XSSCheck.class, InsufficientSessionExpirationCheck.class,
-              XEECheck.class, XPathInjectionCheck.class, SystemExitCheck.class, DeserializationCheck.class);
+              XEECheck.class, XPathInjectionCheck.class, SystemExitCheck.class, DeserializationCheck.class,
+              FileUploadCheck.class);
 
   private SecAuditRules() {
     throw new IllegalAccessError("Do not instantiate this class.");
