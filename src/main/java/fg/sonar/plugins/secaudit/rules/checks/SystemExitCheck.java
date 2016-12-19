@@ -38,7 +38,7 @@ public class SystemExitCheck extends IssuableSubscriptionVisitor {
           .name("exit")
           .withNoParameterConstraint();
 
-  private static final Collection<MethodMatcher> matchers = ImmutableList.of(SYSTEM_EXIT_MATCHER, RUNTIME_EXIT_MATCHER);
+  private static final Collection<MethodMatcher> MATCHERS = ImmutableList.of(SYSTEM_EXIT_MATCHER, RUNTIME_EXIT_MATCHER);
 
   @Override
   public List<Tree.Kind> nodesToVisit() {
@@ -48,7 +48,7 @@ public class SystemExitCheck extends IssuableSubscriptionVisitor {
   @Override
   public void visitNode(Tree tree) {
     MethodInvocationTree methodInvocationTree = (MethodInvocationTree)tree;
-    for (MethodMatcher methodMatcher : matchers) {
+    for (MethodMatcher methodMatcher : MATCHERS) {
       if (methodMatcher.matches(methodInvocationTree)) {
         reportIssue(methodInvocationTree, "System or Runtime exit detected. In a web application it can lead to DOS attacks.");
       }

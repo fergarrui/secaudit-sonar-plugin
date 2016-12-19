@@ -90,6 +90,6 @@ public class FileUploadCheck extends IssuableSubscriptionVisitor {
   }
 
   private void reportUpload(Tree tree) {
-    reportIssue(tree, "Processing a server file upload. Multiple issues can ");
+    reportIssue(tree, "Processing a server file upload. Some issues must be checked.");
   }
 }

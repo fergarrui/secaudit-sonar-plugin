@@ -27,7 +27,7 @@ import org.sonar.plugins.java.api.tree.ExpressionTree;
 import org.sonar.plugins.java.api.tree.MethodInvocationTree;
 import org.sonar.plugins.java.api.tree.NewClassTree;
 import org.sonar.plugins.java.api.tree.Tree;
-import static fg.sonar.plugins.secaudit.rules.checks.xpath.XPathMatchers.matchers;
+import static fg.sonar.plugins.secaudit.rules.checks.xpath.XPathMatchers.MATCHERS;
 
 @Rule(key = "XPathInjectionCheck")
 public class XPathInjectionCheck extends IssuableSubscriptionVisitor {
@@ -64,7 +64,7 @@ public class XPathInjectionCheck extends IssuableSubscriptionVisitor {
 
   private static boolean isInvalidMethodInvocation(MethodInvocationTree methodInvocationTree) {
     boolean isInvalid = true;
-    for (MethodMatcher methodMatcher : matchers) {
+    for (MethodMatcher methodMatcher : MATCHERS) {
       isInvalid &= !methodMatcher.matches(methodInvocationTree);
     }
     return isInvalid;

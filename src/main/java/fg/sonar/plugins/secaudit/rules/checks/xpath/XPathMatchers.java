@@ -114,7 +114,7 @@ public class XPathMatchers {
           .name("query")
           .withNoParameterConstraint();
 
-  public static final Collection<MethodMatcher> matchers =
+  public static final Collection<MethodMatcher> MATCHERS =
           ImmutableList.of(XML_XPATH_EVAL_MATCHER, XML_XPATH_COMPILE_MATCHER, XALAN_XPATH_EVAL_MATCHER, XALAN_XPATH_SELECT_NODE_ITER_MATCHER,
                   XALAN_XPATH_SELECT_NODE_LIST_MATCHER, XALAN_XPATH_SELECT_SINGLE_NODE_MATCHER,SUN_XPATH_EVAL_MATCHER,
                   SUN_XPATH_SELECT_NODE_ITER_MATCHER, SUN_XPATH_SELECT_NODE_LIST_MATCHER, SUNXPATH_SELECT_SINGLE_NODE_MATCHER,
