@@ -1,6 +1,6 @@
 # SecAudit SonarQube plugin
 
-[![Build Status](https://travis-ci.org/fergarrui/secaudit-sonar-plugin.svg?branch=master)](https://travis-ci.org/fergarrui/secaudit-sonar-plugin)
+[![Build Status](https://travis-ci.org/fergarrui/secaudit-sonar-plugin.svg?branch=master)](https://travis-ci.org/fergarrui/secaudit-sonar-plugin)[![Quality Gate](https://sonarqube.com/api/badges/gate?key=fg.sonar.plugins.secaudit:secaudit-sonar-plugin)](https://sonarqube.com/dashboard?id=fg.sonar.plugins.secaudit:secaudit-sonar-plugin)
 
 
 A plugin to highlight dangerous/suspicious parts of the code to help security auditors. It is marking useful security audit points that may not necessarily be vulnerabilities or bugs. The aim of this plugin is to detect areas of the code where a manual or visual review should be done.
