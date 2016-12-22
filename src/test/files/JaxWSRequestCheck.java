@@ -15,6 +15,7 @@ public class B { // Compliant
   }
 }
 public class C { // Compliant
+  @AnotherAnnotation
   public void foo(String s) {
   }
   public String bar(String s) {

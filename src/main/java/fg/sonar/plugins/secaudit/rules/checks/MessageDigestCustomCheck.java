@@ -36,15 +36,13 @@ public class MessageDigestCustomCheck extends IssuableSubscriptionVisitor {
 
   @Override
   public void visitNode(Tree tree) {
-    if (tree.is(Tree.Kind.CLASS)) {
-      ClassTree classTree = (ClassTree)tree;
-      TypeTree superClassTree = classTree.superClass();
-      if (superClassTree == null) {
-        return;
-      }
-      if (superClassTree.symbolType().is(MESSAGE_DIGEST_FULLY_NAME)) {
-        reportIssue(superClassTree, "Using a custom MessageDigest can be dangerous. It's better to use recommended hashing algorithms.");
-      }
+    ClassTree classTree = (ClassTree)tree;
+    TypeTree superClassTree = classTree.superClass();
+    if (superClassTree == null) {
+      return;
+    }
+    if (superClassTree.symbolType().is(MESSAGE_DIGEST_FULLY_NAME)) {
+      reportIssue(superClassTree, "Using a custom MessageDigest can be dangerous. It's better to use recommended hashing algorithms.");
     }
   }
 }

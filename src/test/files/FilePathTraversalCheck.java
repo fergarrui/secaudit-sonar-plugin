@@ -47,5 +47,6 @@ class A {
     FileOutputStream fos1 = new FileOutputStream(a); // Noncompliant [[sc=29;ec=52]]
     FileOutputStream fos2 = new FileOutputStream(fileBadAttr); // Noncompliant [[sc=29;ec=62]]
     FileOutputStream fos3 = new FileOutputStream(fileNameAttr); // Compliant
+    Object o = new Object(); // compliant
   }
 }

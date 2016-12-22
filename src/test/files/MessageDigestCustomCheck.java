@@ -29,3 +29,16 @@ class B { // compliant
   protected void engineReset() {
   }
 }
+
+class C extends AnotherClass { // compliant
+  public B() {}
+  protected void engineUpdate(byte input) {
+  }
+  protected void engineUpdate(byte[] input, int offset, int len) {
+  }
+  protected byte[] engineDigest() {
+    return new byte[0];
+  }
+  protected void engineReset() {
+  }
+}

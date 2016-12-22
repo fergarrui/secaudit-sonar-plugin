@@ -57,3 +57,9 @@ class H extends HttpServlet {
     s.setMaxInactiveInterval(expirationTime); // Compliant
   }
 }
+class I extends HttpServlet {
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    HttpSession s = req.getSession(true);
+    s.setMaxInactiveInterval(new Integer(1)); // Compliant
+  }
+}
